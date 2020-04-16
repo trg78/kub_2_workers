@@ -1,6 +1,6 @@
 # kub_1_master_2_workers
 
-'''
+
 # Prepare ubuntu 18-04 on master (control plane)
 # Turn off swap
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
@@ -56,4 +56,4 @@ sysctl net.bridge.bridge-nf-call-iptables=1
 
 #8 Prepare start config  nano create-config.sh
 
-'''
+
