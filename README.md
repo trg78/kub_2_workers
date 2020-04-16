@@ -60,7 +60,7 @@ apt install docker-ce docker-ce-cli containerd.io
 Install kubernetes
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-apt-get install -y kubelet kubeadm kubectl
+apt install -y kubelet kubeadm kubectl btrfs-tools libseccomp2 socat util-linux
 ```
 
 Install High-Availability and Load Balancing
