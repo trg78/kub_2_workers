@@ -49,6 +49,11 @@ apt install docker-ce docker-ce-cli containerd.io
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 apt-get install -y kubelet kubeadm kubectl
 
+#7 Install High-Availability and Load Balancing
+apt install keepalived
+systemctl enable keepalived && systemctl restart keepalived
+sysctl net.bridge.bridge-nf-call-iptables=1
 
+#8 Prepare start config  nano create-config.sh
 
 '''
