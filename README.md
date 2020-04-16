@@ -2,20 +2,20 @@
 
 
 Prepare ubuntu 18-04 on master (control plane)
-Turn off swap
+Turn off swap  
 '''
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 '''
 
 
-Rename
+Rename  
 '''
 echo "k8s-master" > /etc/hostname
 reboot
 '''
 
 
-Continue , every block separately
+Continue , every block separately  
 '''
 apt-get update
 apt-get install -y \
