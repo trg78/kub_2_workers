@@ -4,6 +4,7 @@
 Prepare ubuntu 18-04 on master (control plane)
 Turn off swap  
 ```
+swapoff -a
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```
 
@@ -70,7 +71,11 @@ systemctl enable keepalived && systemctl restart keepalived
 sysctl net.bridge.bridge-nf-call-iptables=1
 ```
 
-Prepare start config  nano create-config.sh
+On every master node prepare start config  -   create-config.sh
 ```
+./create-config.sh
+```
+
+
 
 ```
