@@ -61,7 +61,7 @@ apt install docker-ce docker-ce-cli containerd.io
 Install kubernetes
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-apt install -y kubelet kubeadm kubectl btrfs-tools libseccomp2 socat util-linux
+apt install -y kubelet kubeadm kubectl btrfs-tools libseccomp2 socat util-linux kubernetes-cni
 ```
 
 Install High-Availability and Load Balancing
@@ -76,6 +76,17 @@ On every master node prepare start config  -   create-config.sh
 ./create-config.sh
 ```
 
+Install first control plane (master node)   cidr= (Your local subnet + mask)
+```
+kubeadm init --pod-network-cidr=172.31.0.0/20
+```
 
+
+
+Install pod network ( i prefer calico)
 
 ```
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+```
+
+
