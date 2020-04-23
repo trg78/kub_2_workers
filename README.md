@@ -1,5 +1,8 @@
 # kub_1_master_2_workers
 
+AWS EC2 + ubuntu 18-04 + all nodes in one VPC
+
+
 
 Prepare ubuntu 18-04 on master (control plane)
 Turn off swap  
@@ -81,6 +84,35 @@ Install first control plane (master node)   cidr= (Your local subnet + mask)
 kubeadm init --pod-network-cidr=172.31.0.0/20
 ```
 
+Ooops, we have k8s issue from 2018 , now v1.18.2 version :
+```
+error: Missing or incomplete configuration info. Please point to an existing, complete config file:
+
+    Via the command-line flag --kubeconfig
+    Via the KUBECONFIG environment variable
+    In your home directory as ~/.kube/config
+```
+
+
+There is no file ~/.kube/config
+Here is example  /etc/kubernetes/admin.conf
+Copy it to right location
+
+```
+mkdir ~/.kube
+cp /etc/kubernetes/admin.conf ~/.kube/config
+```
+
+Check config - 
+```
+kubectl version
+
+Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:56:40Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}
+
+kubectl cluster-info
+Kubernetes master is running at https://172.31.8.152:6443
+KubeDNS is running at https://172.31.8.152:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
 
 
 Install pod network ( i prefer calico)
