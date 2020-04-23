@@ -112,8 +112,17 @@ Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCom
 kubectl cluster-info
 Kubernetes master is running at https://172.31.8.152:6443
 KubeDNS is running at https://172.31.8.152:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
+
+
+Install pod network ( i prefer calico)
+
+```
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
 
 kubectl get pod -n kube-system
+
 NAME                                       READY   STATUS    RESTARTS   AGE
 calico-kube-controllers-6fcbbfb6fb-qnff6   1/1     Running   0          124m
 calico-node-qnfc9                          1/1     Running   0          124m
@@ -124,14 +133,6 @@ kube-apiserver-k8s-master                  1/1     Running   0          5h21m
 kube-controller-manager-k8s-master         1/1     Running   0          5h21m
 kube-proxy-lv49x                           1/1     Running   0          5h20m
 kube-scheduler-k8s-master                  1/1     Running   0          5h21m
-
-```
-
-
-Install pod network ( i prefer calico)
-
-```
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
 
 
